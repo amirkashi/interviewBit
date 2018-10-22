@@ -8,34 +8,28 @@
 Pay attention when you need to return 
 """
 
+
 class Solution:
     # @param A : root node of tree
     # @param B : integer
     # @return an integer
-    def find_sum(self, node, Sum, B):
-        if node == None:
-            return 
-        #print (Sum)
-        if node.left == None and node.right == None:
+    def findSum(self, node, Sum, B):
+        if not node:
+            return
+        if not node.left and not node.right:
             if Sum == B:
                 return True
-        #print (123)
         if node.left:
-            if self.find_sum(node.left,  Sum + node.left.val, B):
-                return True # key point
+            if self.find_sum(node.left, Sum + node.left.val, B):
+                return True
         if node.right:
             if self.find_sum(node.right, Sum + node.right.val, B):
-                return True ## key point
-                
-    
+                return True
+
     def hasPathSum(self, A, B):
         Sum = A.val
-        #print (self.find_sum(A, Sum, B)) 
-        #print (A.left.left.right)
         k = self.find_sum(A, Sum, B)
         if k:
             return 1
         else:
             return 0
-        
-

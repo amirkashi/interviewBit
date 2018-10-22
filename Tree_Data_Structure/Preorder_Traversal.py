@@ -9,15 +9,15 @@ class Solution:
     # @param A : root node of tree
     # @return a list of integers
     def preorder(self, node, tree_vals):
-        if node == None:
-            return 
+        if not node:
+            return
         tree_vals.append(node.val)
         self.preorder(node.left, tree_vals)
         self.preorder(node.right, tree_vals)
+
     def preorderTraversal(self, A):
-        if A == None:
+        if not A:
             return []
         tree_vals = []
         self.preorder(A, tree_vals)
         return tree_vals
-

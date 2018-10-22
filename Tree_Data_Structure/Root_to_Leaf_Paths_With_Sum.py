@@ -9,30 +9,23 @@ class Solution:
     # @param A : root node of tree
     # @param B : integer
     # @return a list of list of integers
-    
-    def find_path(self, node, node_val, Sum, target, result):
-        if node == None:
-            return 
+    def find_path(self, node, node_val, sums, target, result):
+        if not node:
+            return
         node_val.append(node.val)
-        #print (node_val, Sum)
-        if node.left == None and node.right == None and Sum == target:
-            #print (node_val)
+        if not node.left and not node.right and sums == target:
             result.append(node_val[:])
-
         if node.left:
-            self.find_path(node.left, node_val, Sum + node.left.val, target, result)
+            self.find_path(node.left, node_val, sums + node.left.val, target, result)
         if node.right:
-            self.find_path(node.right, node_val, Sum + node.right.val, target, result)
+            self.find_path(node.right, node_val, sums + node.right.val, target, result)
         node_val.pop()
-        #return result 
-    
+
     def pathSum(self, A, B):
         if not A:
             return []
         result = []
         node_val = []
-        Sum = A.val
-        #node_val.append(Sum)
-        self.find_path(A, node_val, Sum, B, result)
-        #print (self.result)
+        sums = A.val
+        self.find_path(A, node_val, sums, B, result)
         return result
