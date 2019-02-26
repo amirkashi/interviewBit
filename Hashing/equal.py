@@ -8,7 +8,6 @@ class Solution:
             return []
         result = []
         sum_i_j = {}
-
         for i in range(0, n):
             for j in range(i + 1, n):
                 Sum = A[i] + A[j]
