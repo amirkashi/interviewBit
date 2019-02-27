@@ -16,35 +16,24 @@ class Solution:
         if B <= 0:
             return A
         head = A
-        # find number of node in list
         node_number = 0
         temp = A 
         while temp != None:
-            #print (temp.val)
             node_number+=1
             temp = temp.next
         B = B%node_number
         if B == 0:
             return A
-        #print (node_number)
-        ### move temp where we  want to rotate
         rotate_index = node_number - B 
-        
-        #print (rotate_index)
         temp = A
-        #print (rotate_index)
         rotate_index-=1
         while rotate_index !=0:
             rotate_index-=1
             temp = temp.next 
-        #print (temp.val)
         rotate = temp.next
         temp.next = None
-        #print (rotate.val)
-        A = rotate # make rotation location head 
-        #print (head.val, rotate.val)
+        A = rotate
         while rotate.next != None:
             rotate = rotate.next
-        #print (A.val, rotate.val, head.val)
         rotate.next = head
         return A

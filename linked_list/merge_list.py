@@ -39,26 +39,15 @@ class Solution:
                 first_A = A
                 second_A = A.next
                 first_B = B
-            
-            #if first_A.val <= first_B.val and first_B.val <= second_A.val:
             elif  first_B.val <= second_A.val:
-                #print (first_B.val)
                 B = first_B.next
-                #print (B.val)
                 first_B.next = second_A
                 first_A.next = first_B
                 second_A = first_A.next
                 first_B = B
-                #print (B.val)
             else:
                 first_A = first_A.next
                 second_A = second_A.next
-            
-        #print (last_node.val)
         if B != None:
             first_A.next = B
-        
         return A
-        
-            
-

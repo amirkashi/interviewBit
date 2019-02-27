@@ -11,15 +11,11 @@ class Solution:
         if A.next != None:
             first = A
             second = first.next
-            # while first != None and second != None :
             while  second != None :
                 if first.val == second.val:
                     first.next = second.next
                     second.next = None
                     second = first.next
-                #elif first.val == second.val and second.next == None:
-                #    first.next = None
-                #    break
                 else:
                     first = first.next
                     second = first.next

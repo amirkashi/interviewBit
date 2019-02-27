@@ -18,7 +18,6 @@ class Solution:
             while temp != None:
                 stack.append(temp.val)
                 temp = temp.next
-            #print (stack)
             temp = A
             pal = True
             while temp != None:

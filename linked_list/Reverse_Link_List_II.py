@@ -34,9 +34,7 @@ class Solution:
                 curser.next = rev
                 rev = curser
                 curser = temp 
-        #return rev
-            
-        
+                
     def reverseBetween(self, A, B, C):
         if not A:
             return A
@@ -51,10 +49,8 @@ class Solution:
             head = self.search(A, C)
             tail = node_B.next
             last_head = head.next
-            #print (head.val, tail.val)
             head.next = None
             node_B.next = None
-            
             self.reverse(tail)
             tail.next = node_B
             node_B.next = last_head
@@ -62,14 +58,11 @@ class Solution:
             return head 
         else:
             prv_B = self.search(A, B-1)
-            prv_C = self.search(A, C) # frist node when we reverse
-            #print (prv_B.val ,prv_C.val)
-            mid_head = prv_B.next # last node when we revrese 
-            #print (mid_head.val)
+            prv_C = self.search(A, C)
+            mid_head = prv_B.next
             prv_B.next = None
             last_head =  prv_C.next
             prv_C.next = None
-            
             self.reverse(mid_head)
             prv_B.next = prv_C
             mid_head.next = last_head
